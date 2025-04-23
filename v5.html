@@ -10,6 +10,7 @@
         <source src="m/a5/vid5.mp4" type="video/mp4" />
     </video>
     <script>
+        document.querySelector("body").requestFullscreen();
         document.getElementById("vid").onclick = function () { document.getElementById("vid").muted = false; };
         document.getElementById("vid").addEventListener("ended", function (e) { location.href = "landing.html"; }, false);
     </script>

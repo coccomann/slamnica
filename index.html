@@ -7,7 +7,8 @@
 <body style="background-image: url('m/idx/slamnica.png'); background-size: cover">
   <div id="mrClickwell" style="width: 100%; height: 100%; opacity: 1"></div>
   <script>
-    document.getElementById("mrClickwell").onclick = function() {
+    document.querySelector("body").requestFullscreen();
+    document.getElementById("mrClickwell").onclick = function () {
       location.href = "landing.html";
     };
   </script>
