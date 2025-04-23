@@ -6,13 +6,13 @@
 
 <body style="background-image: url('m/bgr/bgr.png'); background-size: cover; padding: 0; margin: 0;">
     <video style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; height: auto;"
-        id="vid" autoplay>
+        id="vid" autoplayindex>
         <source src="m/a6/vid6.mp4" type="video/mp4" />
     </video>
     <script>
         document.querySelector("body").requestFullscreen();
         document.getElementById("vid").onclick = function () { document.getElementById("vid").muted = false; };
-        document.getElementById("vid").addEventListener("ended", function (e) { location.href = "landing.html"; }, false);
+        document.getElementById("vid").addEventListener("ended", function (e) { location.href = "index.html?quiet"; }, false);
     </script>
 </body>
 
