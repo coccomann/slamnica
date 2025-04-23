@@ -5,9 +5,6 @@
 </head>
 
 <body style="background-image: url('m/bgr/bgr.png'); background-size: cover; padding: 0; margin: 0;">
-    <audio controls id="audio" autoplay>
-        <source src="m/bgr/snd/greet.mp3" type="audio/mpeg" />
-    </audio>
     <div id="underlay" style="display: flex; flex-direction: column; width: 100vw; height: 100vh; padding: 0">
         <div style="display: flex; flex-direction: row; width: 100vw; height: 50vh;">
             <div style="width: 33%; height: 100%;">
@@ -50,8 +47,10 @@
             </div>
         </div>
     </div>
+    <audio controls id="audio" autoplay>
+        <source src="m/bgr/snd/greet.mp3" type="audio/mpeg" />
+    </audio>
     <script>
-        document.querySelector("body").requestFullscreen();
         document.getElementById("topLeft").onclick = function () {
             location.href = "v1.html";
         };
