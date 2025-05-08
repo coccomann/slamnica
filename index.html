@@ -50,9 +50,43 @@
     <audio hidden="true" id="audio">
         <source src="m/bgr/snd/greet.mp3" type="audio/mpeg" />
     </audio>
+    <audio hidden="true" id="a1">
+        <source src="m/a1/glas.mp3" type="audio/mpeg" />
+    </audio>
+    <audio hidden="true" id="a2">
+        <source src="m/a2/glas.mp3" type="audio/mpeg" />
+    </audio>
+    <audio hidden="true" id="a3">
+        <source src="m/a3/glas.mp3" type="audio/mpeg" />
+    </audio>
+    <audio hidden="true" id="a4">
+        <source src="m/a4/glas.mp3" type="audio/mpeg" />
+    </audio>
+    <audio hidden="true" id="a5">
+        <source src="m/a5/glas.mp3" type="audio/mpeg" />
+    </audio>
+    <audio hidden="true" id="a6">
+        <source src="m/a6/glas.mp3" type="audio/mpeg" />
+    </audio>
+    <img id="play" style="position: absolute; top: 1%; left: 1%; width: 3%; height: 5%" src="m/bgr/icons8-music-note-50.png"/>
     <script>
         var lastInteraction = Date.now();
-        var allowNavigate = false;
+        var allowNavigate = true;
+        var v1Intro = false;
+        var v2Intro = false;
+        var v3Intro = false;
+        var v4Intro = false;
+        var v5Intro = false;
+        var v6Intro = false;
+
+        function resetIntros() {
+            v1Intro = false;
+            v2Intro = false;
+            v3Intro = false;
+            v4Intro = false;
+            v5Intro = false;
+            v6Intro = false;
+        }
         window.setInterval(() => {
             var delta = Date.now() - lastInteraction;
             if (delta > 30000) {
@@ -61,53 +95,126 @@
         }, 1000);
         window.addEventListener("click", function () {
             lastInteraction = Date.now();
-            console.log("timer reset");
         }, false);
-        document.getElementById("audio").addEventListener("loadeddata", function () {
-            if (window.location.search == "?quiet") {
-                allowNavigate = true;
-            } else {
-                document.getElementById("audio").play();
-            }
+        document.getElementById("audio").addEventListener("ended", function () {
+            document.getElementById("play").hidden = false;
         }, false);
+        document.getElementById("play").addEventListener("click", function() {
+            allowNavigate = false;
+            resetIntros();
+            document.getElementById("play").hidden = true;
+            document.getElementById("audio").play();
+        });
         document.getElementById("audio").addEventListener("ended", function () {
             allowNavigate = true;
         }, false);
+        document.getElementById("a1").addEventListener("ended", function() {
+            allowNavigate = true;
+            document.getElementById("play").hidden = false;
+        });
+        document.getElementById("a2").addEventListener("ended", function() {
+            allowNavigate = true;
+            document.getElementById("play").hidden = false;
+        });
+        document.getElementById("a3").addEventListener("ended", function() {
+            allowNavigate = true;
+            document.getElementById("play").hidden = false;
+        });
+        document.getElementById("a4").addEventListener("ended", function() {
+            allowNavigate = true;
+            document.getElementById("play").hidden = false;
+        });
+        document.getElementById("a5").addEventListener("ended", function() {
+            allowNavigate = true;
+            document.getElementById("play").hidden = false;
+        });
+        document.getElementById("a6").addEventListener("ended", function() {
+            allowNavigate = true;
+            document.getElementById("play").hidden = false;
+        });
         document.getElementById("topLeft").addEventListener("click", function () {
             if (!allowNavigate) {
                 return;
             }
-            location.href = "v1.html";
+            if (v1Intro) {
+                location.href = "v1.html";
+            } else {
+                resetIntros();
+                v1Intro = true;
+                allowNavigate = false;
+                document.getElementById("play").hidden = true;
+                document.getElementById("a1").play();
+            }
         }, false);
         document.getElementById("topMiddle").addEventListener("click", function () {
             if (!allowNavigate) {
                 return;
             }
-            location.href = "v2.html";
+            if (v2Intro) {
+                location.href = "v2.html";
+            } else {
+                resetIntros();
+                v2Intro = true;
+                allowNavigate = false;
+                document.getElementById("play").hidden = true;
+                document.getElementById("a2").play();
+            }
         }, false);
         document.getElementById("topRight").addEventListener("click", function () {
             if (!allowNavigate) {
                 return;
             }
-            location.href = "v3.html";
+            if (v3Intro) {
+                location.href = "v3.html";
+            } else {
+                resetIntros();
+                v3Intro = true;
+                allowNavigate = false;
+                document.getElementById("play").hidden = true;
+                document.getElementById("a3").play();
+            }
         }, false);
         document.getElementById("bottomLeft").addEventListener("click", function () {
             if (!allowNavigate) {
                 return;
             }
-            location.href = "v4.html";
+            if (v4Intro) {
+                location.href = "v4.html";
+            } else {
+                resetIntros();
+                v4Intro = true;
+                allowNavigate = false;
+                document.getElementById("play").hidden = true;
+                document.getElementById("a4").play();
+            }
         }, false);
         document.getElementById("bottomMiddle").addEventListener("click", function () {
             if (!allowNavigate) {
                 return;
             }
-            location.href = "v5.html";
+            if (v5Intro) {
+                location.href = "v5.html";
+            } else {
+                resetIntros();
+                v5Intro = true;
+                allowNavigate = false;
+                document.getElementById("play").hidden = true;
+                document.getElementById("a5").play();
+            }
         }, false);
         document.getElementById("bottomRight").addEventListener("click", function () {
             if (!allowNavigate) {
                 return;
             }
-            location.href = "v6.html";
+            if (v6Intro) {
+                location.href = "v6.html";
+            } else {
+                resetIntros();
+                v6Intro = true;
+                allowNavigate = false;
+                document.getElementById("play").hidden = true;
+                document.getElementById("a6").play();
+            }
         }, false);
     </script>
 </body>
