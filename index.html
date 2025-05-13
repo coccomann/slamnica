@@ -70,7 +70,7 @@
     </audio>
     <img id="play" style="position: absolute; top: 1%; left: 1%; width: 3%; height: 5%" src="m/bgr/icons8-music-note-50.png"/>
     <script>
-        var lastInteraction = Date.now();
+//        var lastInteraction = Date.now();
         var allowNavigate = true;
         var v1Intro = false;
         var v2Intro = false;
@@ -87,15 +87,15 @@
             v5Intro = false;
             v6Intro = false;
         }
-        window.setInterval(() => {
-            var delta = Date.now() - lastInteraction;
-            if (delta > 30000) {
-                location.href = "https://slamnica.splet.arnes.si/";
-            }
-        }, 1000);
-        window.addEventListener("click", function () {
-            lastInteraction = Date.now();
-        }, false);
+//        window.setInterval(() => {
+//            var delta = Date.now() - lastInteraction;
+//            if (delta > 30000) {
+//                location.href = "https://slamnica.splet.arnes.si/";
+//            }
+//        }, 1000);
+//        window.addEventListener("click", function () {
+//            lastInteraction = Date.now();
+//        }, false);
         document.getElementById("audio").addEventListener("ended", function () {
             document.getElementById("play").hidden = false;
         }, false);
